@@ -10,3 +10,4 @@
 * [Using Kubeflow Pipelines on AI Platform, with Brian Kang along with git trigger](https://www.youtube.com/watch?v=qx7MLcbCo5g)
 * [Continuous Deployment from git using Cloud Build | Cloud Run](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build)
 * [How to Deploy a Machine Learning Model to Google Cloud for 20% Software Engineers (CS329s tutorial)](https://youtu.be/fw6NMQrYc6w)
+* [Firebase Machine Learning BETA Machine learning for mobile developers](https://firebase.google.com/products/ml)
