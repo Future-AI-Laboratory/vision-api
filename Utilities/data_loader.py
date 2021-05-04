@@ -16,7 +16,7 @@ class invalid_link_exception(Exception):
     super().__init__(self.message)
 
 
-
+# Data Storage Class
 class datastore():
   def __init__(self, download_link = None, download_flag = False):
     try:
