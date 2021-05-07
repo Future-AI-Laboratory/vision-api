@@ -1,14 +1,17 @@
 '''
 It analyzes the content of the dataset of particular crop-type
 (This code block is optional, while running the ML pipeline)
+
+Note: This comparison does not cover or include the original vs augmented comparison
 '''
 import os
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
 from keras.preprocessing.image import img_to_array
+import seaborn as sns
 
-
+# defining the data inspection class
 class data_inspection:
   def __init__(self, dataset_folder, classifiers_list = None, crop_type = None):
     self.dataset_path = dataset_folder
@@ -84,9 +87,54 @@ class data_inspection:
             sample_count += 1
         self.label_df.loc[0, self.classifiers[sr]] = count
       
+      self.label_shape_df = self.img_df[['Shape', 'Label']].value_counts()
+      # checks whether there are multiple image shapes present or not
+      # if shape_imbalance is true it returns, there is a shape imbalance in the dataset
+      self.shape_imbalance = self.label_shape_df.shape[0] > len(self.classifiers)
+      
       # image_list, label_list, 
-      return self.label_df, self.img_df   
+
+      return self.label_df, self.img_df, self.shape_imbalance   
         
     except Exception as e:
       print(f'Error {e}')
       return None
+  
+  # target distribution visualize of dataset images
+  # this is also optional, if visalize flag is enabled for this at the starting of the pipeline
+  def distribution(self, counts_series, label = None):
+    fig = plt.figure(figsize=(15,5))
+    sns.barplot(x = counts_series.index, y = counts_series.values)
+    plt.title(f'Target Distribution of the {self.crop_type} dataset', fontsize=14)
+    plt.xlabel(f'{label} Distribution of different classes')
+    plt.show()
+  
+  # this is also optional, if visalize flag is enabled for this at the starting of the pipeline
+  # visualizes the distribution
+  def distribution_vis(self):
+    # returns pandas series with classes as keys and count as values for augmented dataset
+    target_counts = self.img_df['Label'].value_counts()
+
+    # shape analysis for augmented
+    shape_counts = self.img_df['Shape'].value_counts()
+
+    # visualize target distribution
+    self.distribution(target_counts, label = 'Target')
+
+    # visualize shapes distribution
+    self.distribution(shape_counts, label = 'Shape')
+    
+    print(f'Image shape comparison between different categories \n\n{self.label_shape_df}\n')
+    if self.shape_imbalance:
+      print('There are imbalances in image shapes!')
+
+      # plotting the multi-index dataframe's hist() plot, where label, and shape are two index
+      self.label_shape_df.unstack(level = 1).plot(kind = 'bar', subplots = True, figsize = (10,10), 
+                                            title = 'Visualization of image shape comparison between different categories')
+      plt.show()
+
+    else:
+      print('All the images of the dataset are of same shape')
+
+
+
