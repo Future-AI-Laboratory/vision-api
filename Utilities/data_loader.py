@@ -2,6 +2,11 @@
 Author: Vision Team
 Instruction: While editing this file, to show the effect of edit
 must restart the colab environment
+
+Readability testing: 
+Line 15 : Readability comment #1 
+Line 26 : The purpose of the datastore class is .....
+
 '''
 
 import zipfile
