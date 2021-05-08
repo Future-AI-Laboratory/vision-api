@@ -24,3 +24,4 @@
 * [Continuous Deployment from git using Cloud Build | Cloud Run](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build)
 * [How to Deploy a Machine Learning Model to Google Cloud for 20% Software Engineers (CS329s tutorial)](https://youtu.be/fw6NMQrYc6w)
 * [Firebase Machine Learning BETA Machine learning for mobile developers](https://firebase.google.com/products/ml)
+* [Image Augmentation on the fly using Keras ImageDataGenerator!](https://www.analyticsvidhya.com/blog/2020/08/image-augmentation-on-the-fly-using-keras-imagedatagenerator/)
