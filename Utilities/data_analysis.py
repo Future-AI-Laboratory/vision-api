@@ -3,6 +3,8 @@ It analyzes the content of the dataset of particular crop-type
 (This code block is optional, while running the ML pipeline)
 
 Note: This comparison does not cover or include the original vs augmented comparison
+Todo : Standardising and lint 
+
 '''
 import os
 import numpy as np
