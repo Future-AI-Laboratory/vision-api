@@ -10,6 +10,9 @@ import seaborn as sns
 from keras_preprocessing.image import ImageDataGenerator
 import numpy as np
 
+# log errors/exceptios along with additional message
+import logging
+
 # logging module is used to log athe exception error with suggestion message
 
 class data_preperation:
@@ -82,53 +85,56 @@ class data_preperation:
       logging.exception("message")
 
   def train_test_distribution_check(self):
-    
-    # checks whether lenghth of keys of 'Label' col of train and test matches with classifiers list 
-    assert len(list(self.df_train[self.columns[1]].value_counts().keys())) == len(list(self.df_train[self.columns[1]].value_counts().keys())) == len(self.classifiers)
-    for i in self.classifiers:
-      # checks whether the individual class label is present in the list or not
-      assert i in list(self.df_train[self.columns[1]].value_counts().keys()), list(self.df_test[self.columns[1]].value_counts().keys())
-    print('Label check is done for train and test dataframe, check passed!\n')
-    
-    print(f'Train distribution\n{self.df_train[self.columns[1]].value_counts()}')
-    print(f'\nValidation distribution\n{self.df_valid[self.columns[1]].value_counts()}')
-    print(f'\nTest distribution\n{self.df_test[self.columns[1]].value_counts()}')
-    
-    # checks stratified split(the ratio of train and test samples count for each class/10 == (1-test_ratio))
-    for cls in self.classifiers:
-      assert abs(self.df_train[self.columns[1]].value_counts()[cls] / self.df_test[self.columns[1]].value_counts()[cls]) == (self.split_ratio[0]/self.split_ratio[2])
-      assert abs(self.df_train[self.columns[1]].value_counts()[cls] / self.df_valid[self.columns[1]].value_counts()[cls]) == (self.split_ratio[0]/self.split_ratio[1]) 
-    
-    print('\nStratified train-test split check is passed!\n')
-    
-    train_distribtion = list(self.df_train[self.columns[1]].value_counts().values)
-    valid_distribtion = list(self.df_valid[self.columns[1]].value_counts().values)
-    test_distribtion = list(self.df_test[self.columns[1]].value_counts().values)
-    
-    # Train, test distribution validation
-    fig = plt.figure(figsize=(25,5))
-    labels = ['Train distribution', 'Validation Distribution', 'Test distribution']
-    
-    fig.suptitle(f'Train_Validation_Test distribution for the stratified split', fontsize = 18)
-    fig.tight_layout()
-    fig.add_subplot(131)
-    g = sns.barplot(x = list(self.df_train[self.columns[1]].value_counts().keys()), y = train_distribtion) 
-    # display peak values on bar plot, create dataframe to do so
-    #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
-    plt.xlabel(labels[0])
+    try:  
+      # checks whether lenghth of keys of 'Label' col of train and test matches with classifiers list 
+      assert len(list(self.df_train[self.columns[1]].value_counts().keys())) == len(list(self.df_train[self.columns[1]].value_counts().keys())) == len(self.classifiers)
+      for i in self.classifiers:
+        # checks whether the individual class label is present in the list or not
+        assert i in list(self.df_train[self.columns[1]].value_counts().keys()), list(self.df_test[self.columns[1]].value_counts().keys())
+      print('Label check is done for train and test dataframe, check passed!\n')
+      
+      print(f'Train distribution\n{self.df_train[self.columns[1]].value_counts()}')
+      print(f'\nValidation distribution\n{self.df_valid[self.columns[1]].value_counts()}')
+      print(f'\nTest distribution\n{self.df_test[self.columns[1]].value_counts()}')
+      
+      # checks stratified split(the ratio of train and test samples count for each class/10 == (1-test_ratio))
+      for cls in self.classifiers:
+        assert abs(self.df_train[self.columns[1]].value_counts()[cls] / self.df_test[self.columns[1]].value_counts()[cls]) == (self.split_ratio[0]/self.split_ratio[2])
+        assert abs(self.df_train[self.columns[1]].value_counts()[cls] / self.df_valid[self.columns[1]].value_counts()[cls]) == (self.split_ratio[0]/self.split_ratio[1]) 
+      
+      print('\nStratified train-test split check is passed!\n')
+      
+      train_distribtion = list(self.df_train[self.columns[1]].value_counts().values)
+      valid_distribtion = list(self.df_valid[self.columns[1]].value_counts().values)
+      test_distribtion = list(self.df_test[self.columns[1]].value_counts().values)
+      
+      # Train, test distribution validation
+      fig = plt.figure(figsize=(25,5))
+      labels = ['Train distribution', 'Validation Distribution', 'Test distribution']
+      
+      fig.suptitle(f'Train_Validation_Test distribution for the stratified split', fontsize = 18)
+      fig.tight_layout()
+      fig.add_subplot(131)
+      g = sns.barplot(x = list(self.df_train[self.columns[1]].value_counts().keys()), y = train_distribtion) 
+      # display peak values on bar plot, create dataframe to do so
+      #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
+      plt.xlabel(labels[0])
 
-    fig.add_subplot(132)
-    g = sns.barplot(x = list(self.df_valid[self.columns[1]].value_counts().keys()), y = valid_distribtion) 
-    # display peak values on bar plot, create dataframe to do so
-    #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
-    plt.xlabel(labels[1])
-    
+      fig.add_subplot(132)
+      g = sns.barplot(x = list(self.df_valid[self.columns[1]].value_counts().keys()), y = valid_distribtion) 
+      # display peak values on bar plot, create dataframe to do so
+      #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
+      plt.xlabel(labels[1])
+      
 
-    fig.add_subplot(133)
-    g = sns.barplot(x = list(self.df_test[self.columns[1]].value_counts().keys()), y = test_distribtion) 
-    # display peak values on bar plot, create dataframe to do so
-    #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
-    plt.xlabel(labels[2])
+      fig.add_subplot(133)
+      g = sns.barplot(x = list(self.df_test[self.columns[1]].value_counts().keys()), y = test_distribtion) 
+      # display peak values on bar plot, create dataframe to do so
+      #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
+      plt.xlabel(labels[2])
+
+    except Exception as e:
+      logging.exception('message')
 
   def data_generator(self, img_folder = None, rescale_param = 1./255, dtype = np.float32, batch_size = 64, classes = None, rotation_range = None, width_shift_range = None, height_shift_range = None, zoom_range = 0.0, horizontal_flip = None, vertical_flip = None, class_mode = 'categorical', target_size = (256,256), brightness_range = None):
     '''
@@ -198,13 +204,40 @@ class data_preperation:
     except Exception as e:
       logging.exception("message")
   
-  '''
+  
   def datagen_check(self):
-  '''
-    #This is used to check whether the data generation is done successfully
-  '''
-    # classifier details, classifiers order check
-    for cls in self.classifier:
-      assert train_gen.classes[cls]
+    '''
+    This is used to check whether the data generation is done successfully
+    '''
+    try:
+      assert self.train_gen.class_indices == self.valid_gen.class_indices == self.test_gen.class_indices 
+      # classifier details, classifiers order check
+      for cls in self.classifiers:
+        assert list(self.train_gen.class_indices.keys()).count(cls) == self.classifiers.count(cls)
+      
+      self.classifiers = self.train_gen.class_indices
+      print('\nClass check is done successfully!')
+      print(f'\nThe final label dictionary for the disease classes are follows,\nas defined by the generator will be used for the inference!\n{self.classifiers}')
 
-  '''
+      # batch_size check
+      assert self.train_gen.batch_size == self.valid_gen.batch_size == self.test_gen.batch_size == self.batch_size
+      print(f'\nCheck passed, batch size {self.batch_size}')
+
+      # data type check
+      assert self.train_gen.dtype == self.valid_gen.dtype == self.test_gen.dtype == self.dtype
+      print(f'\nCheck, passed data type {self.dtype}')
+
+      # class mode check
+      assert self.train_gen.class_mode == self.valid_gen.class_mode == self.test_gen.class_mode == self.class_mode
+      print(f'\nCheck passed, class mode {self.class_mode}')
+
+      # target size check
+      assert self.target_size == self.train_gen.target_size == self.valid_gen.target_size == self.test_gen.target_size
+      print(f'\nCheck passed, target size {self.target_size}')
+      
+      # this classifiers dictionary will help to make label.txt for tflit endpoint
+      return self.classifiers
+
+
+    except Exception as e:
+      logging.exception('message')

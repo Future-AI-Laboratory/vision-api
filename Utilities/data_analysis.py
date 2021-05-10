@@ -100,7 +100,6 @@ class data_inspection:
     It will help to use imagedatagenerator.flow_from_dataframe()
 
     '''
-
     crop_classifiers_path = [os.path.join(self.dataset_path, disease) for disease in self.classifiers]
     print(f'{self.crop_type.upper()} directory names list {crop_classifiers_path}')
     
