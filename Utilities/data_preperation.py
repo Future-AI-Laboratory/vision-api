@@ -7,6 +7,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from matplotlib import pyplot as plt
 import seaborn as sns
+from keras_preprocessing.image import ImageDataGenerator
+import numpy as np
+
+# logging module is used to log athe exception error with suggestion message
 
 class data_preperation:
   def __init__(self, img_df, label_df, image_df_columns, classifiers):
@@ -75,7 +79,7 @@ class data_preperation:
       return self.df_train, self.df_valid, self.df_test
 
     except Exception as e:
-      print(e)
+      logging.exception("message")
 
   def train_test_distribution_check(self):
     
@@ -125,4 +129,82 @@ class data_preperation:
     # display peak values on bar plot, create dataframe to do so
     #g.text(potato_classifiers[0], 800,1, color = 'black', ha = 'center')
     plt.xlabel(labels[2])
-    
+
+  def data_generator(self, img_folder = None, rescale_param = 1./255, dtype = np.float32, batch_size = 64, classes = None, rotation_range = None, width_shift_range = None, height_shift_range = None, zoom_range = 0.0, horizontal_flip = None, vertical_flip = None, class_mode = 'categorical', target_size = (256,256), brightness_range = None):
+    '''
+    Creates train, validation, test data generator using keras ImageDataGenerator
+    Note: The order of datagen class indices are reproducible with seed = 2020
+    Multiple datageneration process will result same order of classes indices
+    The class_indices will be edited to config.yaml for inference
+    '''
+
+    try:
+      # considering these two datagen parameters for checking the datagen  
+      self.batch_size = batch_size
+      self.dtype = dtype
+      self.class_mode = class_mode
+      self.target_size = target_size
+
+      # datagenerator object
+      datagen = ImageDataGenerator(
+          rotation_range = rotation_range, # rotation
+          width_shift_range = width_shift_range, # horizontal shift
+          height_shift_range = height_shift_range, # vertical shift
+          zoom_range = zoom_range, # zoom
+          rescale = rescale_param, # normalizing the pixels (rescale parameter is initialized to (1./255))
+          horizontal_flip = horizontal_flip, # horizontal flip
+          brightness_range = brightness_range,
+          dtype = self.dtype
+          ) # brightness
+
+      # train datagen
+      self.train_gen = datagen.flow_from_dataframe(dataframe = self.df_train, 
+                                                directory = img_folder, # specifies destination image folder where all the images are stored together
+                                                x_col=self.columns[0], # image name column ('Image')
+                                                y_col=self.columns[1], # image label column ('Label) 
+                                                class_mode = self.class_mode, # taken as categorical 
+                                                target_size = self.target_size, # default target size (256,256)
+                                                batch_size= self.batch_size, # default batch size taken as 64
+                                                seed=2020, # ensures better reproducibility
+                                                classes = self.classifiers # specifies class list in a pre-defined order
+                                                ) 
+      
+      # Validation datagen
+      self.valid_gen = datagen.flow_from_dataframe(dataframe = self.df_valid, 
+                                                directory = img_folder, # specifies destination image folder where all the images are stored together
+                                                x_col=self.columns[0], # image name column ('Image')
+                                                y_col=self.columns[1], # image label column ('Label) 
+                                                class_mode = self.class_mode, # taken as categorical 
+                                                target_size = self.target_size, # default target size (256,256)
+                                                batch_size= self.batch_size, # default batch size taken as 64
+                                                seed=2020, # ensures better reproducibility
+                                                classes = self.classifiers # specifies class list in a pre-defined order
+                                                ) 
+      
+      # test datagen
+      self.test_gen = datagen.flow_from_dataframe(dataframe = self.df_test, 
+                                                directory = img_folder, # specifies destination image folder where all the images are stored together
+                                                x_col=self.columns[0], # image name column ('Image')
+                                                y_col=self.columns[1], # image label column ('Label) 
+                                                class_mode = self.class_mode, # taken as categorical 
+                                                target_size = self.target_size, # default target size (256,256)
+                                                batch_size= self.batch_size, # default batch size taken as 64
+                                                seed = 2020, # ensures better reproducibility
+                                                classes = self.classifiers # specifies class list in a pre-defined order
+                                                ) 
+      
+      return self.train_gen, self.valid_gen, self.test_gen
+
+    except Exception as e:
+      logging.exception("message")
+  
+  '''
+  def datagen_check(self):
+  '''
+    #This is used to check whether the data generation is done successfully
+  '''
+    # classifier details, classifiers order check
+    for cls in self.classifier:
+      assert train_gen.classes[cls]
+
+  '''
