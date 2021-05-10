@@ -136,7 +136,7 @@ class data_preperation:
     except Exception as e:
       logging.exception('message')
 
-  def data_generator(self, img_folder = None, rescale_param = 1./255, dtype = np.float32, batch_size = 64, classes = None, rotation_range = None, width_shift_range = None, height_shift_range = None, zoom_range = 0.0, horizontal_flip = None, vertical_flip = None, class_mode = 'categorical', target_size = (256,256), brightness_range = None):
+  def data_generator(self, img_folder = None, rescale_param = 1./255, dtype = np.float32, batch_size = 64, interpolation = 'bicubic', classes = None, rotation_range = None, width_shift_range = None, height_shift_range = None, zoom_range = 0.0, horizontal_flip = None, vertical_flip = None, class_mode = 'categorical', target_size = (256,256), brightness_range = None):
     '''
     Creates train, validation, test data generator using keras ImageDataGenerator
     Note: The order of datagen class indices are reproducible with seed = 2020
@@ -150,6 +150,7 @@ class data_preperation:
       self.dtype = dtype
       self.class_mode = class_mode
       self.target_size = target_size
+      self.interpolation = interpolation
 
       # datagenerator object
       datagen = ImageDataGenerator(
@@ -160,7 +161,7 @@ class data_preperation:
           rescale = rescale_param, # normalizing the pixels (rescale parameter is initialized to (1./255))
           horizontal_flip = horizontal_flip, # horizontal flip
           brightness_range = brightness_range,
-          dtype = self.dtype
+          dtype = self.dtype,
           ) # brightness
 
       # train datagen
@@ -172,7 +173,8 @@ class data_preperation:
                                                 target_size = self.target_size, # default target size (256,256)
                                                 batch_size= self.batch_size, # default batch size taken as 64
                                                 seed=2020, # ensures better reproducibility
-                                                classes = self.classifiers # specifies class list in a pre-defined order
+                                                classes = self.classifiers, # specifies class list in a pre-defined order
+                                                interpolation = self.interpolation
                                                 ) 
       
       # Validation datagen
@@ -184,7 +186,8 @@ class data_preperation:
                                                 target_size = self.target_size, # default target size (256,256)
                                                 batch_size= self.batch_size, # default batch size taken as 64
                                                 seed=2020, # ensures better reproducibility
-                                                classes = self.classifiers # specifies class list in a pre-defined order
+                                                classes = self.classifiers, # specifies class list in a pre-defined order
+                                                interpolation = self.interpolation # interpolation technique
                                                 ) 
       
       # test datagen
@@ -196,7 +199,8 @@ class data_preperation:
                                                 target_size = self.target_size, # default target size (256,256)
                                                 batch_size= self.batch_size, # default batch size taken as 64
                                                 seed = 2020, # ensures better reproducibility
-                                                classes = self.classifiers # specifies class list in a pre-defined order
+                                                classes = self.classifiers, # specifies class list in a pre-defined order
+                                                interpolation = self.interpolation
                                                 ) 
       
       return self.train_gen, self.valid_gen, self.test_gen
