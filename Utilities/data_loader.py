@@ -5,7 +5,9 @@ must restart the colab environment
 
 Readability testing: 
 Line 15 : Readability comment #1 
-Line 26 : The purpose of the datastore class is .....
+Line 26 : The purpose of the datastore class is to highlight the exceptions that occur in download link or in the downloaded zip folder of data set.
+           And if there are no exceptions, it downloads the data set and returns the path where it is stored in the local machine
+Code as a whole: Need to be reconsidered from code quality perspective as when checked with pylint, it is give rating -8.2/10
 
 '''
 
