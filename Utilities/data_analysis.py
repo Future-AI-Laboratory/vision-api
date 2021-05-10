@@ -21,6 +21,9 @@ from keras.preprocessing.image import img_to_array
 import seaborn as sns
 import shutil
 
+# used to log errors
+import logging
+
 # defining the data inspection class
 class data_inspection:
   def __init__(self, dataset_folder, image_folder_path = 'images', classifiers_list = None, crop_type = None):
@@ -86,7 +89,8 @@ class data_inspection:
         return np.array([])
     
     except Exception as e:
-      print(f'Error {e}')
+      # returns exception with addition message
+      logging.exception('message')
       return None
 
   def fetch_img_info(self):
@@ -96,7 +100,6 @@ class data_inspection:
     It will help to use imagedatagenerator.flow_from_dataframe()
 
     '''
-
     crop_classifiers_path = [os.path.join(self.dataset_path, disease) for disease in self.classifiers]
     print(f'{self.crop_type.upper()} directory names list {crop_classifiers_path}')
     
@@ -159,7 +162,8 @@ class data_inspection:
       return self.label_df, self.img_df, self.shape_imbalance   
         
     except Exception as e:
-      print(f'Error {e}')
+      # returns exception with addition message
+      logging.exception('message')
       return None
   
   # target distribution visualize of dataset images
