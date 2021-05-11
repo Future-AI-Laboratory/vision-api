@@ -17,12 +17,13 @@ import wandb
 # builds the CNN model
 class model_build:
   # initialize the parameters to configure the model
-  def __init__(self, input_shape = (256, 256, 3), num_classes = 3, artifact_id = 'Potato_model_artifacts_new'):
+  def __init__(self, input_shape = (256, 256, 3), num_classes = 3, artifact_id = 'Potato_model_artifacts_new', artifact_name = "potato_convnet"):
     # default input image shape = (256,256,3)
     self.input_shape = input_shape
     # deafult num_classes = 3
     self.num_classes = num_classes
     self.model_artifact_id = artifact_id
+    self.model_artifact_name = artifact_name 
 
     # defining model config
     self.model_config = {"num_classes" : self.num_classes,
@@ -75,7 +76,7 @@ class model_build:
         model = self.potato_model()
 
         potato_artifact = wandb.Artifact(
-          "potato_convnet", type = "model",
+          self.model_artifact_name, type = "model",
           description = "Potato_CNN_model",
           metadata = dict(config)
         )
@@ -92,7 +93,7 @@ class model_build:
         # log the artifact to wandb
         run.log_artifact(potato_artifact)
 
-      return self.model_config
+      return self.model_config, self.model_artifact_id, self.model_artifact_name
 
     except Exception as e:
       logging.exception("messsage")

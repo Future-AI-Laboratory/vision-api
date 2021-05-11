@@ -135,8 +135,9 @@ class data_preperation:
 
     except Exception as e:
       logging.exception('message')
-
-  def data_generator(self, img_folder = None, rescale_param = 1./255, dtype = np.float32, batch_size = 64, interpolation = 'bicubic', classes = None, rotation_range = None, width_shift_range = None, height_shift_range = None, zoom_range = 0.0, horizontal_flip = None, vertical_flip = None, class_mode = 'categorical', target_size = (256,256), brightness_range = None):
+ 
+  # horizontal, vertical flip is boolean(it's not Nne, either True or False)
+  def data_generator(self, img_folder = None, rescale_param = 1./255, dtype = np.float32, batch_size = 64, interpolation = 'bicubic', classes = None, rotation_range = None, width_shift_range = None, height_shift_range = None, zoom_range = 0.0, horizontal_flip = False, vertical_flip = False, class_mode = 'categorical', target_size = (256,256), brightness_range = None):
     '''
     Creates train, validation, test data generator using keras ImageDataGenerator
     Note: The order of datagen class indices are reproducible with seed = 2020

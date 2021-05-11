@@ -20,7 +20,7 @@ import os
 
 
 class model_train:
-  def __init__(self, learning_rate = 0.001, epochs = 10, batch_size = 32, loss_fn = 'sparse_categorical_crossentropy',artifact_id = 'Potato_model_artifacts_new'):
+  def __init__(self, learning_rate = 0.001, epochs = 10, batch_size = 32, loss_fn = 'sparse_categorical_crossentropy',artifact_id = 'Potato_model_artifacts_new', artifact_name = 'potato_convnet'):
     '''
     Initialize the model training hyperparameters
     '''
@@ -29,8 +29,9 @@ class model_train:
     self.epochs = 10
     self.batch_size = 32
     self.loss_fn = 'sparse_categorical_crossentropy'
-    self.optimizer = Adam(self.learning_rate)
+    self.optimizer = Adam(lr = self.learning_rate)
     self.model_artifact_id = artifact_id
+    self.model_artifact_name = artifact_name
     
     # define callback optimizer
     self.callback_config = {"log_weights": True,
@@ -48,13 +49,14 @@ class model_train:
     print(f'Training configuration\n{self.train_config}')
 
 
-  def train(self, training, validation, config):
+  def train(self, model, training, validation, config):
     '''
     defining model training steps
     '''
     try:      
+      
       # model compiling
-      model.compile(loss = self.loss_fn, optimizer = config.optimizer, metrics = ['accuracy'])
+      model.compile(loss = self.loss_fn, optimizer = self.optimizer, metrics = ['accuracy'])
       
       # defining model callbacks
       # reduce Learning Rate on Plateu
@@ -69,7 +71,7 @@ class model_train:
       # schedule is exponential decaying LR
 
       lr_schedule = tf.keras.callbacks.LearningRateScheduler(lambda epoch: 1e-03/(epoch+1))
-
+      print('STarting training....')
       # defining model fit 
       # passing train datagenerator, validation data generator
       model.fit(training, validation_data = validation, 
@@ -95,14 +97,16 @@ class model_train:
       
       # use the latest model artifact used previously
       #Note: Always use that syntax never use space, wrong: ("potato_convnet: latest"), correct: ("potato_convnet:latest")  
-      model_artifact = run.use_artifact("potato_convnet:latest")
+      
+      model_artifact = run.use_artifact(self.model_artifact_name+":latest")
+      print(f'Using the artifact - {self.model_artifact_name+":latest"}')
       # download latest version of the model artifact
       model_dir = model_artifact.download()
       # load the downloaded model(initialized) of model artifact from model_dir
-      model_path = os.path.join(model_dir, "initialized_model.keras")
+      model_path = os.path.join(model_dir, "initialized_potato_model.keras")
       # load the model from model path using keras for training
       model = keras.models.load_model(model_path)
-
+      
       # load model metadata to model_config
       model_config = model_artifact.metadata
       
@@ -110,7 +114,7 @@ class model_train:
       config.update(model_config)
 
       # start the training
-      train(model, train_gen, valid_gen)
+      self.train(model, train_gen, valid_gen, config)
 
 
 
