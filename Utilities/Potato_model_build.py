@@ -37,7 +37,6 @@ class model_build:
     There is no hyperparameter variables used in this configuration 
     '''
     try:
-
       inputs = keras.layers.Input(shape = self.input_shape)
 
       x = keras.layers.Conv2D(filters = 16, kernel_size=3, activation='relu', strides=1)(inputs)
@@ -47,9 +46,9 @@ class model_build:
       x = keras.layers.Flatten()(x)
       x = keras.layers.Dense(128, activation='relu')(x)
       x = keras.layers.Dropout(rate = 0.3)(x)
-      output = keras.layers.Dense(num_classes, activation='softmax')(x)
+      output = keras.layers.Dense(self.num_classes, activation='softmax')(x)
 
-      model = keras.models.Model(inputs = self.input_shape, outputs = self.num_classes)
+      model = keras.models.Model(inputs = inputs, outputs = output)
 
       print('Model Summary\n')
       model.summary()
@@ -58,8 +57,8 @@ class model_build:
       model_file_name = 'Potato_CNN.jpg'
       print(f'Potato Model is saved in {model_file_name} file!')
 
-      return model, self.
-
+      return model
+      
     except Exception as e:
       logging.exception('message')
   
@@ -89,6 +88,8 @@ class model_build:
         potato_artifact.add_file("initialized_potato_model.keras")
         # save the initialized model to that file
         wandb.save("initialized_potato_model.keras")
+
+      return self.model_config
 
     except Exception as e:
       logging.exception("messsage")
