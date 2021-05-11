@@ -20,7 +20,7 @@ import os
 
 
 class model_train:
-  def __init__(self, learning_rate = 0.001, epochs = 10, batch_size = 32, loss_fn = 'sparse_categorical_crossentropy',artifact_id = 'Potato_model_artifacts_new', artifact_name = 'potato_convnet'):
+  def __init__(self, learning_rate = 0.001, epochs = 10, batch_size = 32, loss_fn = 'sparse_categorical_crossentropy',artifact_id = 'Potato_model_artifacts_new', artifact_name = 'potato_convnet', model_initialized_filename = "initialized_potato_model.keras", trained_artifact_name = "potato_trained_model"):
     '''
     Initialize the model training hyperparameters
     '''
@@ -31,8 +31,14 @@ class model_train:
     self.loss_fn = 'sparse_categorical_crossentropy'
     self.optimizer = Adam(lr = self.learning_rate)
     self.model_artifact_id = artifact_id
+    # model artifact name(can be passed as an argument from model_build)
     self.model_artifact_name = artifact_name
+    # model trained artifact name
+    self.model_trained_artifact_name = trained_artifact_name
+    # model initialized filename(can be passed from model_build)
+    self.model_initialized_filename = model_initialized_filename
     
+
     # define callback optimizer
     self.callback_config = {"log_weights": True,
                             "save_model": True,
@@ -103,7 +109,7 @@ class model_train:
       # download latest version of the model artifact
       model_dir = model_artifact.download()
       # load the downloaded model(initialized) of model artifact from model_dir
-      model_path = os.path.join(model_dir, "initialized_potato_model.keras")
+      model_path = os.path.join(model_dir, self.model_initialized_filename)
       # load the model from model path using keras for training
       model = keras.models.load_model(model_path)
       
@@ -115,6 +121,27 @@ class model_train:
 
       # start the training
       self.train(model, train_gen, valid_gen, config)
+
+      # create new artifact model type for the trained model  
+      model_artifact = wandb.Artifact(
+        self.model_trained_artifact_name, type = "model",
+        description = "Potato CNN model trained with model.fit"
+      )
+
+      # save the trained model
+      model_trained_filename = self.model_trained_artifact_name + ".keras"
+      model.save(model_trained_filename)
+      # add new file to the artifact with that name 
+      model_artifact.add_file(model_trained_filename)
+      # save to wandb
+      wandb.save(model_trained_filename)
+
+      # log the artifact
+      run.log_artifact(model_artifact)
+
+    return model
+
+
 
 
 
