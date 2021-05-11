@@ -17,12 +17,12 @@ import wandb
 # builds the CNN model
 class model_build:
   # initialize the parameters to configure the model
-  def __init__(self, input_shape = (256, 256, 3), num_classes = 3, artifact_id = 'Potato_model_artifacts'):
+  def __init__(self, input_shape = (256, 256, 3), num_classes = 3, artifact_id = 'Potato_model_artifacts_new'):
     # default input image shape = (256,256,3)
     self.input_shape = input_shape
     # deafult num_classes = 3
     self.num_classes = num_classes
-    self.model_artifact = artifact_id
+    self.model_artifact_id = artifact_id
 
     # defining model config
     self.model_config = {"num_classes" : self.num_classes,
@@ -69,7 +69,7 @@ class model_build:
     '''
     try:
       # initializing wandb artifact project with default name for CNN model
-      with wandb.init(project = self.model_artifact, job_type = "initialize", config = self.model_config) as run:
+      with wandb.init(project = self.model_artifact_id, job_type = "initialize", config = self.model_config) as run:
         config = wandb.config
 
         model = self.potato_model()
@@ -88,6 +88,9 @@ class model_build:
         potato_artifact.add_file("initialized_potato_model.keras")
         # save the initialized model to that file
         wandb.save("initialized_potato_model.keras")
+        
+        # log the artifact to wandb
+        run.log_artifact(potato_artifact)
 
       return self.model_config
 
