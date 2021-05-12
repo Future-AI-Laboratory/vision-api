@@ -103,6 +103,9 @@ class evaluate:
         wandb.log({"high-loss-example":
                   [wandb.Image(hard_example, caption = "Pred: "+str(pred) + ",Label: " + str(label))
                   for hard_example, pred, label in zip(hardest_examples, preds, true_labels)]})
+      
+      # returns the model after evaluation
+      return model
     
     except Exception as e:
       logging.exception("message")

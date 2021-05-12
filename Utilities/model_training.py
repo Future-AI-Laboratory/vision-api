@@ -97,49 +97,53 @@ class model_train:
     '''
     Defining training and log steps to wandb
     '''
-    # add train config while initializing the train with block
-    with wandb.init(project = self.model_artifact_id, job_type = "train", config = self.train_config) as run:
-      config = wandb.config
-      
-      # use the latest model artifact used previously
-      #Note: Always use that syntax never use space, wrong: ("potato_convnet: latest"), correct: ("potato_convnet:latest")  
-      
-      model_artifact = run.use_artifact(self.model_artifact_name+":latest")
-      print(f'Using the artifact - {self.model_artifact_name+":latest"}')
-      # download latest version of the model artifact
-      model_dir = model_artifact.download()
-      # load the downloaded model(initialized) of model artifact from model_dir
-      model_path = os.path.join(model_dir, self.model_initialized_filename)
-      # load the model from model path using keras for training
-      model = keras.models.load_model(model_path)
-      
-      # load model metadata to model_config
-      model_config = model_artifact.metadata
-      
-      # update the config with that model config
-      config.update(model_config)
+    try:
+      # add train config while initializing the train with block
+      with wandb.init(project = self.model_artifact_id, job_type = "train", config = self.train_config) as run:
+        config = wandb.config
+        
+        # use the latest model artifact used previously
+        #Note: Always use that syntax never use space, wrong: ("potato_convnet: latest"), correct: ("potato_convnet:latest")  
+        
+        model_artifact = run.use_artifact(self.model_artifact_name+":latest")
+        print(f'Using the artifact - {self.model_artifact_name+":latest"}')
+        # download latest version of the model artifact
+        model_dir = model_artifact.download()
+        # load the downloaded model(initialized) of model artifact from model_dir
+        model_path = os.path.join(model_dir, self.model_initialized_filename)
+        # load the model from model path using keras for training
+        model = keras.models.load_model(model_path)
+        
+        # load model metadata to model_config
+        model_config = model_artifact.metadata
+        
+        # update the config with that model config
+        config.update(model_config)
 
-      # start the training
-      self.train(model, train_gen, valid_gen, config)
+        # start the training
+        self.train(model, train_gen, valid_gen, config)
 
-      # create new artifact model type for the trained model  
-      model_artifact = wandb.Artifact(
-        self.model_trained_artifact_name, type = "model",
-        description = "Potato CNN model trained with model.fit"
-      )
+        # create new artifact model type for the trained model  
+        model_artifact = wandb.Artifact(
+          self.model_trained_artifact_name, type = "model",
+          description = "Potato CNN model trained with model.fit"
+        )
 
-      # save the trained model
-      model_trained_filename = self.model_trained_artifact_name + ".keras"
-      model.save(model_trained_filename)
-      # add new file to the artifact with that name 
-      model_artifact.add_file(model_trained_filename)
-      # save to wandb
-      wandb.save(model_trained_filename)
+        # save the trained model
+        model_trained_filename = self.model_trained_artifact_name + ".keras"
+        model.save(model_trained_filename)
+        # add new file to the artifact with that name 
+        model_artifact.add_file(model_trained_filename)
+        # save to wandb
+        wandb.save(model_trained_filename)
 
-      # log the artifact
-      run.log_artifact(model_artifact)
+        # log the artifact t train artifact
+        run.log_artifact(model_artifact)
 
-    return model
+      return model, self.model_trained_artifact_name
+
+    except Exception as e:
+      logging.exception("message")
 
 
 

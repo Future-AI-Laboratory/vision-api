@@ -220,7 +220,7 @@ class data_preperation:
       for cls in self.classifiers:
         assert list(self.train_gen.class_indices.keys()).count(cls) == self.classifiers.count(cls)
       
-      self.classifiers = self.train_gen.class_indices
+      labels_dict = self.train_gen.class_indices
       print('\nClass check is done successfully!')
       print(f'\nThe final label dictionary for the disease classes are follows,\nas defined by the generator will be used for the inference!\n{self.classifiers}')
 
@@ -241,7 +241,7 @@ class data_preperation:
       print(f'\nCheck passed, target size {self.target_size}')
       
       # this classifiers dictionary will help to make label.txt for tflit endpoint
-      return self.classifiers
+      return labels_dict
 
 
     except Exception as e:
