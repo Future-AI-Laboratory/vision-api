@@ -20,7 +20,7 @@ import os
 
 
 class model_train:
-  def __init__(self, learning_rate = 0.001, epochs = 10, batch_size = 32, loss_fn = 'sparse_categorical_crossentropy',artifact_id = 'Potato_model_artifacts_new', artifact_name = 'potato_convnet', model_initialized_filename = "initialized_potato_model.keras", trained_artifact_name = "potato_trained_model"):
+  def __init__(self, learning_rate = 0.001, epochs = 30, batch_size = 32, loss_fn = 'sparse_categorical_crossentropy',artifact_id = 'Potato_model_artifacts_new', artifact_name = 'potato_convnet', model_initialized_filename = "initialized_potato_model.keras", trained_artifact_name = "potato_trained_model"):
     '''
     Initialize the model training hyperparameters
     '''

@@ -2,11 +2,6 @@
 Author: Vision Team
 Instruction: While editing this file, to show the effect of edit
 must restart the colab environment
-
-Readability testing: 
-Line 15 : Readability comment #1 
-Line 26 : The purpose of the datastore class is .....
-
 '''
 
 import zipfile
@@ -21,13 +16,12 @@ class invalid_link_exception(Exception):
     super().__init__(self.message)
 
 
-# Data Storage Class
+
 class datastore():
   def __init__(self, download_link = None, download_flag = False):
     try:
       if download_flag:        
         command = 'wget '+ download_link
-        os.system(command)
         
         if os.system(command)!=0:
           raise invalid_link_exception(download_link)
