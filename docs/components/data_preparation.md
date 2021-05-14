@@ -1,5 +1,5 @@
-# data_loader
-
+# data_preparation
+This python file contains code necessary to prepare the data for usee in the model-build phase.
 ## Source
 Python file can be found [here](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/data_preperation.py).
 
