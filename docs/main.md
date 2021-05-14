@@ -1,8 +1,3 @@
----
-layout: page
-title: "Vision-API"
-permalink: https://future-ai-laboratory.github.io/vision-api/main
----
 # Vision-API
 The Vision API is a work-in-progress customized toolkit that enables detection of a variety of plant leaf diseases. The API uses models
 that are deployed to a cloud server to interface with the end-users.
