@@ -2,6 +2,8 @@
 The Vision API is a work-in-progress customized toolkit that enables detection of a variety of plant leaf diseases. The API uses models
 that are deployed to a cloud server to interface with the end-users.
 
+Download the zipped repository [here](https://github.com/Future-AI-Laboratory/vision-api/archive/refs/heads/master.zip).
+
 ## Components
 Vision API provides 11 python files, right from loading and exploring the data to saving the converted tflite model. The components are:
 + [data_loader](components/data_loader.md)
