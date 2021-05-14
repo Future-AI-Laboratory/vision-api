@@ -5,7 +5,7 @@ that are deployed to a cloud server to interface with the end-users.
 ## Components
 Vision API provides 11 python files, right from loading and exploring the data to saving the converted tflite model. The components are:
 + [data_loader](components/data_loader.md)
-+ [daat_preparation](components/data_preparation.md)
++ [data_preparation](components/data_preparation.md)
 + [data_analysis](components/data_analysis.md)
 + [environment_setup](components/environment_setup.md)
 + [Potato_model_build](components/Potato_model_build.md)
