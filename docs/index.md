@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+# Vision-API
+The Vision API is a work-in-progress customized toolkit that enables detection of a variety of plant leaf diseases. The API uses models
+that are deployed to a cloud server to interface with the end-users.
 
-You can use the [editor on GitHub](https://github.com/Future-AI-Laboratory/vision-api/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Components
+Vision API provides 11 python files, right from loading and exploring the data to saving the converted tflite model. The components are:
++ [data_loader](components/data_loader.md)
++ [data_preparation](components/data_preparation.md)
++ [data_analysis](components/data_analysis.md)
++ [environment_setup](components/environment_setup.md)
++ [Potato_model_build](components/Potato_model_build.md)
++ [model_training](components/model_training.md)
++ [train](components/train.md)
++ [evaluate](components/evaluate.md)
++ [save_model](components/save_model.md)
++ [tflite_conversion](components/tflite_conversion.md)
++ [main](components/main.md)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Building Vision API
+A guide to building the Vision API can be found [here](building.md).
 
-### Markdown
+## Upcoming Features
+A list of planned features for the Vision API can be found [here](roadmap.md).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Future-AI-Laboratory/vision-api/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Release History
+A changelog of previous versions of Vision API can be found [here](changelog.md).
