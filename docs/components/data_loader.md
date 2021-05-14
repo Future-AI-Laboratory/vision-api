@@ -1,5 +1,5 @@
 # data_loader
-
+This python file contains code necessary to download the dataset from a given link.
 ## Source 
 Python file can be found [here](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/data_loader.py).
 
