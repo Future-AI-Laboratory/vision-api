@@ -8,6 +8,7 @@ import os
 import random
 from tensorflow.python.client import device_lib
 import logging
+import wandb
 
 
 def environment_setup():
@@ -29,6 +30,10 @@ def environment_setup():
       raise SystemError('GPU device not found')
     print('Found GPU at: {}'.format(device_name))
     print(f'Device details\n{device_lib.list_local_devices()}')
+
+    # wandb authorization
+    print("\n Weights and Bias authorization through the provided link to log training, model version control!\n")
+    wandb.login()
 
   except Exception as e:
     logging.exception("message")

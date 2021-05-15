@@ -6,7 +6,7 @@ import keras
 import os
 
 class save_model:
-  def __init__(self, model_dir = "saved_model", model_json = "trained_model.json", model_weights = "trained_weights.h5"):
+  def __init__(self, model_dir = "Potato_model", model_json = "trained_model.json", model_weights = "trained_weights.h5"):
     self.model_dir = model_dir
     self.model_json = model_json
     self.model_weights = model_weights
