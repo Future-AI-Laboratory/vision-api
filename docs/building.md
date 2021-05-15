@@ -24,12 +24,12 @@ The following files from the project repository are needed:
 + [environment_setup.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/environment_setup.py)
 + [evaluate.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/evaluate.py)
 + [model_training.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/model_training.py)
-+ [Potato_model_build](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/Potato_model_build.py)
++ [Potato_model_build.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/Potato_model_build.py)
 + [save_model.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/save_model.py)
 + [tflite_conversion.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/tflite_conversion.py)
 
 Main function that runs the entire ML pipeline:
-+ [train_pipeline](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/train_pipeline.py)
++ [train_pipeline.py](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/train_pipeline.py)
 
 Use the following link to download the zipped repository containing all necessary files: [Download](https://github.com/Future-AI-Laboratory/vision-api/archive/refs/heads/review_sayan.zip).  
 Note: The python files are located in the "Utilities" folder.
