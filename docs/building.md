@@ -31,6 +31,9 @@ The following files from the project repository are needed:
 Main function that runs the entire ML pipeline:
 + [train_pipeline](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/Utilities/train_pipeline.py)
 
+Use the following link to download the zipped repository containing all necessary files: [Download](https://github.com/Future-AI-Laboratory/vision-api/archive/refs/heads/review_sayan.zip).  
+Note: The python files are located in the "Utilities" folder.
+
 ## Instructions
 1. Download all of the necessary packages and python files.
 2. Run **train_pipeline.py** and specify the arguments required:
