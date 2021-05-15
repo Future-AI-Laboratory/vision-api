@@ -72,7 +72,7 @@ B. Deployed Vision system in Drones or bots that are used in real-time while sur
    routine basis, this analytics application can be done later by a code running on cloud to
    save on-board battery power. 
    
-## **Objective:** 
+## **Objective** 
 
 Here we are focuing on System 3 implementation, where we are proposing to have a cloud platform, where multiple vision based cloud services will be run for classifying different plant leaf diseases. Here we are focusing on Potato Leaf Disease classification.
 
