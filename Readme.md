@@ -74,7 +74,28 @@ B. Deployed Vision system in Drones or bots that are used in real-time while sur
    
 ## **Objective** 
 
-Here we are focuing on System 3 implementation, where we are proposing to have a cloud platform, where multiple vision based cloud services will be run for classifying different plant leaf diseases. Here we are focusing on Potato Leaf Disease classification.
+* Dataset Source
+Here we are focuing on System 3 implementation, where we are proposing to have a cloud platform, where multiple vision based cloud services will be run for classifying different plant leaf diseases. Here we are focusing on Potato Leaf Disease classification. 
+
+## **Dataset**
+
+* Source: [Mendley Plant Village Dataset](https://data.mendeley.com/datasets/tywbtsjrjv/1)
+
+* Description: In this data-set, 39 different classes of plant leaf and background images are available. the Plant Village Dataset consists of two different sets of data 
+
+  **1. Original Dataset** contains 54303 healthy and unhealthy leaf images. 
+  
+  **2. Augmented dataset** containing 61,486 images. Six different augmentation techniques were used for increasing the data-set size. The techniques are  >image flipping, Gamma correction, noise injection, PCA color augmentation, rotation, and Scaling.
+
+* Original Paper: [An open access repository of images on plant health to enable the development of mobile disease diagnostics](https://arxiv.org/abs/1511.08060)
+
+#### **Potato Dataset**
+
+Among the 39 classes there are 3 following categories of Potato classes available in the dataset. 
+ * **Potato Early Blight:** Early blight of potato is caused by the fungal pathogen Alternaria solani. The disease affects leaves, stems and tubers and can reduce yield, tuber size, storability of tubers, quality of fresh-market and processing tubers and marketability of the crop. More on this can be found [here](https://www.ag.ndsu.edu/publications/crops/early-blight-in-potato#:~:text=Early%20blight%20of%20potato%20is,and%20marketability%20of%20the%20crop.)
+ * **Potato Late Blight:** Late blight, also called potato blight, disease of potato plants that is caused by the water mold Phytophthora infestans. The disease occurs in humid regions with temperatures ranging between 4 and 29 °C (40 and 80 °F). Hot dry weather checks its spread. Potato or tomato plants that are infected may rot within two weeks. More on this can be found [here](https://cropwatch.unl.edu/potato/late_blights_description)
+ * **Potato Healthy:** Potato Healthy Leaves are those, which have no diseases, which are fresh and healthy. 
+
 
 @sayan (fill your thought process here ) 
 
