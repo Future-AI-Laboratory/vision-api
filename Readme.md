@@ -74,8 +74,7 @@ B. Deployed Vision system in Drones or bots that are used in real-time while sur
    
 ## **Objective** 
 
-* Dataset Source
-Here we are focuing on System 3 implementation, where we are proposing to have a cloud platform, where multiple vision based cloud services will be run for classifying different plant leaf diseases. Here we are focusing on Potato Leaf Disease classification. 
+Our objective is to build a cloud platform, where multiple vision based cloud services will be run for classifying different plant leaf diseases. Here we are focusing on Potato Leaf Disease classification. 
 
 ## **Dataset**
 
