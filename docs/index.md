@@ -6,17 +6,17 @@ Download the zipped repository [here](https://github.com/Future-AI-Laboratory/vi
 
 ## Components
 Vision API provides 11 python files, right from loading and exploring the data to saving the converted tflite model. The components are:
-+ [data_loader](components/data_loader.md)
-+ [data_preparation](components/data_preparation.md)
-+ [data_analysis](components/data_analysis.md)
 + [environment_setup](components/environment_setup.md)
-+ [evaluate](components/evaluate.md)
-+ [inference](components/inference.md)
-+ [model_training](components/model_training.md)
++ [data_loader](components/data_loader.md)
++ [data_analysis](components/data_analysis.md)
++ [data_preparation](components/data_preparation.md)
 + [Potato_model_build](components/Potato_model_build.md)
++ [model_training](components/model_training.md)
++ [evaluate](components/evaluate.md)
 + [save_model](components/save_model.md)
 + [tflite_conversion](components/tflite_conversion.md)
 + [train_pipeline](components/train_pipeline.md)
++ [inference](components/inference.md)
 
 ## Building Vision API
 A guide to building the Vision API can be found [here](building.md).
