@@ -79,9 +79,9 @@ Here we are focuing on System 3 implementation, where we are proposing to have a
 
 ## **Dataset**
 
-* Source: [Mendley Plant Village Dataset](https://data.mendeley.com/datasets/tywbtsjrjv/1)
+* **Source:** [Mendley Plant Village Dataset](https://data.mendeley.com/datasets/tywbtsjrjv/1)
 
-* Description: In this data-set, 39 different classes of plant leaf and background images are available. the Plant Village Dataset consists of two different sets of data 
+* **Description:** In this data-set, 39 different classes of plant leaf and background images are available. the Plant Village Dataset consists of two different sets of data 
 
   **1. Original Dataset** contains 54303 healthy and unhealthy leaf images. 
   
