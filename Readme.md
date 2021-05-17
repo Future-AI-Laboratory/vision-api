@@ -72,7 +72,7 @@ The comparison of model performance is done for both original and augmenetd set 
    ![Model result]()
 
 **Comparison using Confusion Matrix**  
-   ![CM](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/confusion_matrix.png)
+   ![CM](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/confusion_matrix_updated.png)
 
 #### Result Interepretation Using GradCAM(Gradient weighted Class Activation Map)
 ---
