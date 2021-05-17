@@ -127,7 +127,9 @@ We have tried to compare between the performance of the CNN models using Origina
    * Ratio: 90% Train(with a Validation split = 0.1), 10% Test.
    * Split: TO overcome the class imabalance during train-test split, stratified train-test split is done using label. 
 
-3. Model Building: Concolution Neural Network(CNN) model is used here for Leaf Disease Classification. We have started from the reference CNN model of the paper "[Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)". Then, we modified the CNN model and proposed a much more lighter and more consistent model.
+3. Model Building: Concolution Neural Network(CNN) model is used here for Leaf Disease Classification. We have started from the reference CNN model of the paper "[Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)". Then, we modified the CNN model and proposed a much more lighter and more consistent model. The comparison between refernce and propsed model is shown below.
+
+![Model Comparison]()
 
 The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
