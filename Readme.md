@@ -100,6 +100,12 @@ Class Activation Map analysis for Potato Late Blight Image samples
 
 The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
+## Deep Learning Pipeline Design
+
+Detailed implementation and study regarding the Deep Learning Pipeline design from data-loader to tflite conversion can be found from the following link.
+
+**[Deep Learning Pipeline Design]()**
+
 # **Reference**
 
 * [Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)
