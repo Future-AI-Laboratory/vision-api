@@ -91,9 +91,10 @@ Class Activation Map analysis for Potato Late Blight Image samples
 
 The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
+# **Reference**
 
-@sayan (fill your thought process here ) 
-
+* [Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)
+* [Weights and Biases](https://github.com/wandb/client)
 
 
 
