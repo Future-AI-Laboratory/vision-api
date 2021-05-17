@@ -60,6 +60,8 @@ We have tried to compare between the performance of the CNN models using Origina
 
 ![Model Comparison](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/Model_comparison.png)
 
+From the model architecture it is clearly visible(Highlighted) that, the proposed model is much more lighter than the reference model. The model is diffivult to run in collab and log to wandb using wandb callback.
+
 The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
 ## **CNN Models**
