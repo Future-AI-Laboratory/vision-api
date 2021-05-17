@@ -106,7 +106,7 @@ The detailed study of the Potato Leaf Disease classification can be found from
 
 Detailed implementation and study regarding the Deep Learning Pipeline design from data-loader to tflite conversion can be found from the following link.
 
-## **[Vision API Design](https://github.com/Future-AI-Laboratory/vision-api/blob/gh-pages/docs/index.md)**
+# **[Vision API Design](https://github.com/Future-AI-Laboratory/vision-api/blob/gh-pages/docs/index.md)**
 
 # **Reference**
 
