@@ -105,7 +105,7 @@ In original and augmented dataset the class distribution is as follows.
 
 ![Distribution](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/potato_distribution.PNG)
 
-In original set Potato Healthy class contains 152 images, wheras the rest two classes contain 1000 images. The Augmented dataset contains 1000 classes each. For Original Dataset all the images are of standard resolution (256,256,3), whereas in Augmented dataset the 2152 images are of shape (256,256,3), and 848 images of class Potato_Healthy are of shape (204,204,31).  
+In original set Potato Healthy class contains 152 images, wheras the rest two classes contain 1000 images. The Augmented dataset contains 1000 classes each. For Original Dataset all the images are of standard resolution (256,256,3), whereas in Augmented dataset the 2152 images are of shape (256,256,3), and 848 images of class Potato_Healthy are of shape (204,204,3).  
 @sayan (fill your thought process here ) 
 
 
