@@ -101,7 +101,7 @@ Among the 39 classes there are 3 following categories of Potato classes availabl
 
 ## **Class Distribution**
 
-In original and augmented dataset the class distribution is as follows.
+In original and augmented dataset contains 2152 and 3000 image samples respectively. The class and image shape distribution is as follows.
 
 ![Distribution](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/potato_distribution.PNG)
 
