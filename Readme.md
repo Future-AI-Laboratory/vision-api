@@ -96,7 +96,8 @@ Among the 39 classes there are 3 following categories of Potato classes availabl
 ![EB](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/Potato_early_blight.png)
 * **Potato Late Blight:** Late blight, also called potato blight, disease of potato plants that is caused by the water mold Phytophthora infestans. The disease occurs in humid regions with temperatures ranging between 4 and 29 °C (40 and 80 °F). Hot dry weather checks its spread. Potato or tomato plants that are infected may rot within two weeks. More on this can be found [here](https://cropwatch.unl.edu/potato/late_blights_description)
 ![Late blight](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/late_blight.png)
- * **Potato Healthy:** Potato Healthy Leaves are those, which have no diseases, which are fresh and healthy. 
+ * **Potato Healthy:** Potato Healthy Leaves are those, which have no diseases, which are fresh and healthy.
+![Healthy](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/healthy_new.png) 
 
 
 @sayan (fill your thought process here ) 
