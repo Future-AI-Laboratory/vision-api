@@ -99,6 +99,11 @@ Among the 39 classes there are 3 following categories of Potato classes availabl
  * **Potato Healthy:** Potato Healthy Leaves are those, which have no diseases, which are fresh and healthy.
 ![Healthy](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/healthy_new.png) 
 
+## **Class Distribution**
+
+In original and augmented dataset the class distribution is as foloows.
+
+![Distribution]()
 
 @sayan (fill your thought process here ) 
 
