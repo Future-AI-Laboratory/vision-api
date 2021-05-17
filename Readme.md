@@ -98,7 +98,9 @@ Class Activation Map analysis for Potato Late Blight Image samples
 
 ![Potato Late Blight](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/Potato%20Late%20Blight%20Map.png)
 
-The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
+The detailed study of the Potato Leaf Disease classification can be found from 
+
+##[google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
 ## Deep Learning Pipeline Design
 
