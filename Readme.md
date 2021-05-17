@@ -1,3 +1,5 @@
+# **Potato Leaf Disease Classification Study and Deep Learning Pipeline Design for Computer Vision**
+
 ## **Introduction:**
 
 In agricultural field, everything is natural from production to maintenance of crops, weather effects, etc. and lots of uncertainities involved, which require continious and efficient monitoring, and take quick action in situation basis, which is not feasible for individuals, thus technology introduces it's vision for those solutions. There maybe severl vision based applications, when it comes to agriculture. Our goal is to bring multiple vision base applications under the same hood, so that we are proposing to make a centralized cloud based application, which is as follow:
