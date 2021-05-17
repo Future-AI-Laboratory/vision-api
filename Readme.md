@@ -46,17 +46,19 @@ We will build an entire pipeline which will help to fetch the data from the Plan
 
 We have tried to compare between the performance of the CNN models using Original and Augmented dataset. 
 
-#### 1. Data Pre-processing: The following data-preprocessing techniques are used-
+#### 1. Data Pre-processing 
+The following data-preprocessing techniques are used-
    * Image_to_array: Converting image samples to numpy array
    * Interpolation: To interpolate all the images to standard shape (256,256,3) using "Bicubic", interpolation. 
    * Shuffle: Shuffle all the samples
    * Encoding: The labels are encoded with a class mode "sparse", to support the "sparse_categorical_cross-entropy"
 
-#### 2. Train-Validation-Test split: 
+#### 2. Train-Validation-Test split 
    * Ratio: 90% Train(with a Validation split = 0.1), 10% Test.
    * Split: TO overcome the class imabalance during train-test split, stratified train-test split is done using label. 
 
-#### 3. CNN Model Building: Concolution Neural Network(CNN) model is used here for Leaf Disease Classification. We have started from the reference CNN model of the paper "[Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)". Then, we modified the CNN model and proposed a much more lighter and more consistent model. The comparison between refernce and propsed model is shown below.
+#### 3. CNN Model Building
+Convolution Neural Network(CNN) model is used here for Leaf Disease Classification. We have started from the reference CNN model of the paper "[Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)". Then, we modified the CNN model and proposed a much more lighter and more consistent model. The comparison between refernce and propsed model is shown below.
 
 ![Model Comparison](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/Model_comparison.png)
 
