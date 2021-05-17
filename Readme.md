@@ -72,7 +72,7 @@ Class Activation Map analysis for Potato Healthy Image samples
 
 Class Activation Map analysis for Potato Early Blight Image samples
 
-![Potato early blight]()
+![Potato early blight](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/early%20blight%20map.png)
 
 Class Activation Map analysis for Potato Late Blight Image samples
 
