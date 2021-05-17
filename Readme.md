@@ -65,7 +65,7 @@ Convolution Neural Network(CNN) model is used here for Leaf Disease Classificati
 From the model architecture it is clearly visible(Highlighted) that, the proposed model is much more lighter than the reference model. The model is diffivult to run in collab and log to wandb using wandb callback.
 
 #### Result Interepretation Using GradCAM(Gradient weighted Class Activation Map)
---
+---
 Class Activation Map analysis for Potato Healthy Image samples
 
 ![Potato_healthy CAM](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/potato_helthy_CAM.png)
