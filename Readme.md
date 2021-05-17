@@ -64,7 +64,13 @@ Convolution Neural Network(CNN) model is used here for Leaf Disease Classificati
 
 From the model architecture it is clearly visible(Highlighted) that, the proposed model is much more lighter than the reference model. The model is diffivult to run in collab and log to wandb using wandb callback.
 
-#### 4. Model Performance for Original and Augmented Dataset
+#### 4. Model Training Report
+
+Model training report for original and augmented dataset
+
+![Training report](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/Training%20report.png)
+
+#### 5. Model Evaluation for Original and Augmented Dataset
 
 The comparison of model performance is done for both original and augmenetd set to finalyze the dataset for training, and classification reportt is generated using test dataset. The model performance for the datasets are compared using Classification report, Confusion Matrix
 
@@ -95,15 +101,3 @@ The detailed study of the Potato Leaf Disease classification can be found from [
 
 * [Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)
 * [Weights and Biases](https://github.com/wandb/client)
-
-
-
-
-
-
-
-
-
-
-
-
