@@ -113,7 +113,9 @@ We will build an entire pipeline which will help to fetch the data from the Plan
 
 ![UML Diagram]()
 
-The details study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
+## **Detailed Study**
+
+We have tried to compare between the performance of the CNN models using Original and Augmented dataset. The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
 @sayan (fill your thought process here ) 
 
