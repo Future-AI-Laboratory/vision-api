@@ -103,7 +103,7 @@ Among the 39 classes there are 3 following categories of Potato classes availabl
 
 In original and augmented dataset the class distribution is as foloows.
 
-![Distribution]()
+![Distribution](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/potato_distribution.PNG)
 
 @sayan (fill your thought process here ) 
 
