@@ -64,7 +64,15 @@ From the model architecture it is clearly visible(Highlighted) that, the propose
 
 #### Result Interepretation Using GradCAM(Gradient weighted Class Activation Map)
 
+Class Activation Map analysis for Potato Healthy Image samples
+
 ![Potato_healthy CAM](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/potato_helthy_CAM.png)
+
+Class Activation Map analysis for Potato Early Blight Image samples
+
+
+
+Class Activation Map analysis for Potato Late Blight Image samples
 
 The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
