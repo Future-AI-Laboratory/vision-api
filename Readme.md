@@ -70,9 +70,11 @@ Class Activation Map analysis for Potato Healthy Image samples
 
 Class Activation Map analysis for Potato Early Blight Image samples
 
-
+![Potato early blight]()
 
 Class Activation Map analysis for Potato Late Blight Image samples
+
+![Potato Late Blight]()
 
 The detailed study of the Potato Leaf Disease classification can be found from [google colab notebook.](https://colab.research.google.com/drive/1eGm-dgXcBwx44xw1RMopc2wlcHSF8Pfj?usp=sharing)
 
