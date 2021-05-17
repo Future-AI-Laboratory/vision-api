@@ -68,10 +68,10 @@ From the model architecture it is clearly visible(Highlighted) that, the propose
 
 The comparison of model performance is done for both original and augmenetd set to finalyze the dataset for training, and classification reportt is generated using test dataset. The model performance for the datasets are compared using Classification report, Confusion Matrix
 
-**Comparison Using Classification Report**
+* **Comparison Using Classification Report**
    ![Model result]()
 
-**Comparison using Confusion Matrix**  
+* **Comparison using Confusion Matrix**  
    ![CM](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/confusion_matrix_updated.png)
 
 #### Result Interepretation Using GradCAM(Gradient weighted Class Activation Map)
