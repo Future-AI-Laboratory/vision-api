@@ -6,12 +6,12 @@ Python file can be found [here](https://github.com/Future-AI-Laboratory/vision-a
 ## Packages and Dependencies
 The following packages need to be imported:
 + `pandas`
-+ `train_test_split` from `sklearn.model_selection`
++ `sklearn`
 + `matplotlib`
 + `seaborn`
-+  `ImageDataGenerator` from `keras_preprocessing.image`
-+  `numpy`
-+  `logging`
++ `keras`
++ `numpy`
++ `logging`
 
 ## Classes and Functions
 1. `data_preparation` class implements the following functions:
