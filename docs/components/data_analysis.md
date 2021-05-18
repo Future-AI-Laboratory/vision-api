@@ -10,7 +10,7 @@ Python file can be found [here](https://github.com/Future-AI-Laboratory/vision-a
 + `numpy`
 + `matplotlib`
 + `pandas`
-+ `img_to_array` from `keras.preprocessing.image`
++ `keras`
 + `seaborn`
 + `shutil`
 + `logging`
