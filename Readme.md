@@ -80,10 +80,14 @@ The comparison of model performance is done for both original and augmenetd set 
 
    ![Model result](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/classification_report.PNG)
 
-* Weights and Biases Training Log
+#### 6. Weights and Biases Training Log
  
-The demo image of the training logs logged in the wandb "Potato Leaf Disease Classifier" project is shown below-
+All the model trainings are logged using weights and biases callback to log model training metrices, system environment parameters, so that we can visualize and analyze that for later analysis, and wandb helps to identify the best epoch if the validation set is passed to wandbcllbacl, The demo image of the training logs logged in the wandb "Potato Leaf Disease Classifier" project is shown below-
    ![wandb_log](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/wandb%20log.PNG)
+   
+The detailed report for the Potato Leaf Disease Classifier can be found from the following link
+
+## [weights and biases reports](https://wandb.ai/sayan0506/Potato_disease_classifier)
 
 * **Comparison using Confusion Matrix**  
 
