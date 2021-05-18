@@ -6,7 +6,7 @@ Python file can be found [here](https://github.com/Future-AI-Laboratory/vision-a
 
 ## Packages and Dependencies
 The following packages need to be imported:
-+ `tensorflow`, `device_lib` from `tensorflow.python.client`
++ `tensorflow`
 + `numpy`
 + `os`
 + `random`
