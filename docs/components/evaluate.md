@@ -10,8 +10,8 @@ Python file can be found [here](https://github.com/Future-AI-Laboratory/vision-a
 + `os`
 + `keras`
 + `numpy`
-+ `confusion_matrix` from `sklearn.metrics`
-+ `matplotlib` and `matplotlib.cm`
++ `sklearn`
++ `matplotlib`
 + `seaborn`
 
 ## Classes and Functions
