@@ -36,10 +36,11 @@ class inference:
         img = plt.imread(os.path.join(self.image_folder, image))
         self.image_list.append(img)
 
-    if len(self.image_list)!=0:
-      print('\nImages are fetched successfully...\n')
-    else:
+    if not self.image_list:
       print('\nNo image found...\n')
+
+    else:
+      print('\nImages are fetched successfully...\n')
     
 
   def data_preprocessing(self):
