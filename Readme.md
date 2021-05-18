@@ -80,6 +80,11 @@ The comparison of model performance is done for both original and augmenetd set 
 
    ![Model result](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/classification_report.PNG)
 
+* Weights and Biases Training Log
+ 
+The demo image of the training logs logged in the wandb "Potato Leaf Disease Classifier" project is shown below-
+   ![wandb_log](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/wandb%20log.PNG)
+
 * **Comparison using Confusion Matrix**  
 
    ![CM](https://github.com/Future-AI-Laboratory/vision-api/blob/review_sayan/images/confusion_matrix_updated.png)
