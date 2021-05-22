@@ -20,49 +20,49 @@ import argparse
 def main(args):
   try:
     environment_setup.environment_setup()
-    # Plat Village Augmented Dataset(For simplicity we are by deafult providing the download link)
-    download_link = 'https://data.mendeley.com/public-files/datasets/tywbtsjrjv/files/b4e3a32f-c0bd-4060-81e9-6144231f2520/file_downloaded'
     # download flag to ensure whether to download or not
     download_flag = args.df
     data_analysis_flag = args.da
     # whether include training in the pipeline or not
     train_flag = args.tf
 
-    
-    if download_flag:      
+
+    if download_flag:  
+      # Plat Village Augmented Dataset(For simplicity we are by deafult providing the download link)
+      download_link = 'https://data.mendeley.com/public-files/datasets/tywbtsjrjv/files/b4e3a32f-c0bd-4060-81e9-6144231f2520/file_downloaded'
       # dataloader object, based on flag downloads the 
       data_load = dl.datastore(download_link = download_link, download_flag = download_flag)
-    
+
       zip_file = input("Enter zip file link: ")
       # unzip folder
       destination = input("Enter destination folder: ")
       data_load.unzip(zip_file, destination)
 
       dataset_path = os.path.join(destination, os.listdir(destination)[0])
-    
+
     else:
       dataset_folder = args.folder
       dataset_path = os.path.join(dataset_folder, os.listdir(dataset_folder)[0])
 
     print(f'Dataset path "{dataset_path}"')
-    
-    potato_image_path = 'Potato_images'  
+
+    potato_image_path = 'Potato_images'
     potato_classifier = ['Potato___healthy', 'Potato___Late_blight', 'Potato___Early_blight']
-    
+
     print('\nData Analysis...\n')
     # we can generalize that for any of the other crop in the plant village dataset
     crop_type = "Potato"
     # data analysis object
     da = data_analysis.data_inspection(dataset_path, potato_image_path, potato_classifier, crop_type)
-    
+
     # fetch label dataframe, image_dataframe, shape flag
     label_df, img_df, flag = da.fetch_img_info()
-    
+
     # if data analysis vis is active
-    
+
     if data_analysis_flag:
       da.dataset_content()
-    
+
       print(f'\nClassifiers analysis\n{label_df}')
       print(f'\nImage samples analysis\n{img_df}')
       da.distribution_vis()
@@ -82,9 +82,9 @@ def main(args):
     # fetching final labels dictionary, can be used for tflite label.txt
     labels_dict = dp.datagen_check()
     print(f'\nClassifiers structure returned by the data generator with better reproducibility...\n{labels_dict}')
-    
+
     print("\nPotato CNN Model Building...\n")
-    
+
     # model build object
     pmb = potato_mb.model_build()
     # build and log model to wandb
@@ -92,7 +92,7 @@ def main(args):
     print(f'\nModel config\n{model_config[0]}')
     print(f'\nProject name {model_config[1]}')
     print(f'\nModel artifact name {model_config[2]}')
-    
+
     # training
     if train_flag:  
       print('\nModel Training...\n')
@@ -100,14 +100,14 @@ def main(args):
       mdt = mt.model_train()
       # train and log to wandb
       model = mdt.train_and_log(train_gen, valid_gen)
-      
+
     print('\nModel Evaluation on latest model...\n')
     el = ev.evaluate(test_gen)
     model = el.evaluate_and_log()
-    
+
     print('\nSaving Model .json, weights.h5...\n')
     save_model.save_model().save_model(model)
-    
+
     if args.tlf:
       # model.json, weights.h5, tflite conversion
       print('\nTflite Conversion...\n')
