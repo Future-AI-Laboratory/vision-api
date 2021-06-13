@@ -115,6 +115,10 @@ Detailed implementation and study regarding the Deep Learning Pipeline design fr
 
 # **[Vision API Design](https://github.com/Future-AI-Laboratory/vision-api/blob/gh-pages/docs/index.md)**
 
+## ML Pipeline Design
+
+* **wandb version control pipeline and trainling logs can be found [WANDB Potato_model_artifacts_new](https://wandb.ai/sayan0506/Potato_model_artifacts_new)**
+
 # **Reference**
 
 * [Comparative Assessment of Deep Learning to Detect the Leaf Diseases of Potato based on Data Augmentation](https://ieeexplore.ieee.org/abstract/document/9200015)
